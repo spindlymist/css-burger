@@ -12,7 +12,7 @@ html, body {
 body {
     --bg-dark: rgb(61, 11, 11);
     --bg-light: rgb(90, 22, 22);
-    
+
     background: radial-gradient(var(--bg-light), var(--bg-dark));
 }
 
@@ -227,4 +227,8 @@ body {
     position: relative;
     z-index: 5;
     margin-top: -3vw;
+}
+
+#burger-description {
+    display: none;
 }
