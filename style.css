@@ -5,13 +5,15 @@
 }
 
 html, body {
-    height: 100vh;
-    width: 100vw;
+    min-height: 100vh;
     overflow: hidden;
 }
 
 body {
-    background: radial-gradient(rgb(90, 22, 22), rgb(61, 11, 11));
+    --bg-dark: rgb(61, 11, 11);
+    --bg-light: rgb(90, 22, 22);
+    
+    background: radial-gradient(var(--bg-light), var(--bg-dark));
 }
 
 .burger {
@@ -19,9 +21,13 @@ body {
     margin: 20vh auto;
     position: relative;
 }
+
 .bun {
+    --dark: #db9730;
+    --light: #f0b55e;
+
     height: 6vw;
-    background: linear-gradient(180deg, #f0b55e,#db9730);
+    background: linear-gradient(var(--light), var(--dark));
     position: relative;
 }
 .bun.top {
@@ -33,8 +39,12 @@ body {
     z-index: 0;
     margin-top: -2vw;
 }
+
 .sesame {
-    background: linear-gradient(wheat, rgb(255, 243, 220));
+    --dark: wheat;
+    --light: rgb(255, 243, 220);
+
+    background: linear-gradient(var(--dark), var(--light));
     border-radius: 50%;
     width: .4vw;
     height: .9vw;
@@ -82,7 +92,7 @@ body {
 }
 
 .ketchup {
-    background: #f92828;
+    background-color: #f92828;
     position: absolute;
     left: 67%;
     top: 5.5vw;
@@ -92,13 +102,13 @@ body {
     z-index: 80;
 }
 .ketchup .drip {
-    background: #f92828;
+    background-color: inherit;
     height: 6vw;
     width: 40%;
     margin: 0 auto;
 }
 .ketchup .end {
-    background: #f92828;
+    background-color: inherit;
     height: .65vw;
     width: 1.7vw;
     border-radius: 50%;
@@ -113,7 +123,16 @@ body {
     position: relative;
 }
 .onion {
-    background: linear-gradient(90deg, rgb(126, 21, 99) 0%, rgb(153, 30, 122) 25%, rgb(182, 46, 148) 50%, rgb(153, 30, 122) 75%, rgb(126, 21, 99) 100%);
+    --dark: rgb(126, 21, 99);
+    --med: rgb(153, 30, 122);
+    --light: rgb(182, 46, 148);
+
+    background: linear-gradient(to right,
+        var(--dark) 0%,
+        var(--med) 25%,
+        var(--light) 50%,
+        var(--med) 75%,
+        var(--dark) 100%);
     position: absolute;
     width: 75%;
     height: 100%;
@@ -130,15 +149,23 @@ body {
     left: 20%;
     z-index: 60;
     transform: rotate(1deg);
-    border-bottom: 4px solid rgba(255, 255, 255, .1);
-    
+    border-bottom: 2px solid rgba(255, 255, 255, .1);
 }
 
 .tomato {
+    --dark: #af4431;
+    --med: tomato;
+    --light: #ff7961;
+
+    background: linear-gradient(to right,
+        var(--dark) 0%,
+        var(--med) 25%,
+        var(--light) 50%,
+        var(--med) 75%,
+        var(--dark) 100%);
     margin: -1vw auto 0;
     height: 2vw;
     width: 95%;
-    background: linear-gradient(90deg, #af4431 0%, tomato 25%, #ff7961 50%, tomato 75%, #af4431 100%);
     position: relative;
     z-index: 30;
     border-radius: 20% 20% 40% 40%;
@@ -156,29 +183,35 @@ body {
 }
 
 .lettuce {
+    --dark: rgb(22, 201, 22);
+    --light: rgb(27, 221, 27);
+
     position: relative;
     z-index: 20;
     margin-top: -2.5vw;
 }
 .lettuce .top {
+    background: var(--dark);
     height: 2.5vw;
-    background: rgb(22, 201, 22);
     border-radius: 1vw 1vw 0 0;
 }
-.ruffles {
+.lettuce .ruffles {
     height: 1vw;
     display: flex;
     flex-direction: row;
     align-items: stretch;
 }
-.ruffle {
+.lettuce .ruffle {
+    background: linear-gradient(var(--dark), var(--light));
     flex: 1;
-    background: linear-gradient(180deg, rgb(22, 201, 22), rgb(27, 221, 27));
     border-radius: 0 0 50% 50%;
 }
 
 .cheese {
-    background: linear-gradient( rgb(255, 251, 16), rgb(255, 252, 59));
+    --dark: rgb(255, 251, 16);
+    --light: rgb(255, 252, 59);
+
+    background: linear-gradient(var(--dark), var(--light));
     height: 4vw;
     position: relative;
     margin: -2vw auto 0 auto;
